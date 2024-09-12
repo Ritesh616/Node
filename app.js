@@ -24,9 +24,9 @@ con.connect((err) =>{
 
 
 
-// app.get("/",(req,res)=>{
-// res.json({message: "ok" });
-// });
+ app.get("/",(req,res)=>{
+ res.json({message: "ok" });
+ });
 
 
 app.post('/post', (req,res)=>{
