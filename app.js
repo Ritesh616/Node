@@ -30,13 +30,13 @@ app.get("/", (req, res) => {
 app.post("/user", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
-  const phone_no = req.body.phone_no;
+  const phoneNo = req.body.phoneNo;
   const password = req.body.password;
-  const confirm_password = req.body.confirm_password;
+  const confirmPassword = req.body.confirmPassword;
   const address = req.body.address;
   con.query(
     "insert into user values (?,?,?,?,?,?)",
-    [name, email, phone_no, password, confirm_password, address],
+    [name, email, phoneNo, password, confirmPassword, address],
     (err, result) => {
       if (err) {
         console.log(err);
