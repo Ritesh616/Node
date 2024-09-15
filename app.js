@@ -8,40 +8,41 @@ app.use(
   })
 );
 
-// const con = mysql.createConnection({
-//   host: 'localhost',
-//   user:"root",
-//   password:"",
-//   database:"electricity_management"
-// });
-// con.connect((err) =>{
-//   if(err)
-//   {
-//     console.log(err)
-//   }else{
-//     console.log("connected")
-//   }
-// });
+const con = mysql.createConnection({
+  host: 'localhost',
+  user:"root",
+  password:"",
+  database:"electricity_management"
+});
+con.connect((err) =>{
+  if(err)
+  {
+    console.log(err)
+  }else{
+    console.log("connected")
+  }
+});
 
 app.get("/", (req, res) => {
   res.json({ message: "ok" });
 });
 
 app.post("/user", (req, res) => {
+
   const name = req.body.name;
   const email = req.body.email;
-  const phoneNo = req.body.phoneNo;
+  const phone_no = req.body.phone_no;
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
+  const confirm_password = req.body.confirm_password;
   const address = req.body.address;
   con.query(
     "insert into user values (?,?,?,?,?,?)",
-    [name, email, phoneNo, password, confirmPassword, address],
+    [name, email, phone_no, password, confirm_password, address],
     (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        res.send("POSTED");
+        res.send("Data stored Successfully");
       }
     }
   );
